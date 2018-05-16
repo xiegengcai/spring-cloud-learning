@@ -1,0 +1,22 @@
+server:
+  port: 1112
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: localhost
+  server:
+    # 是否开启自我保护机制
+    enable-self-preservation: false
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:1111/eureka/
+
+logging:
+  file: logs/${spring.application.name}.log
+  level: debug
